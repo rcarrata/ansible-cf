@@ -1,0 +1,8 @@
+---
+- name: '[HEAT-ANSIBLE][HEAT-CREATE] Heat Creation'
+  hosts: all
+  #remote_user: root
+  #vars_files:
+  #  - "vaults/vault.yml"
+  roles:
+    - { role: heat-ansible }
