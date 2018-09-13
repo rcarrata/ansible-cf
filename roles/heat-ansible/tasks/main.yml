@@ -10,29 +10,26 @@
     validate_certs: false
   environment:
     OS_USERNAME: "{{ ADMIN_USER }}"
-    OS_TENANT_NAME: "{{ ADMIN_TENANT_NAME }}"
     OS_PASSWORD: "{{ OSP_PASS }}"
     OS_AUTH_URL: "http://{{ KEYSTONE_ENDPOINT }}:{{ KEYSTONE_ADMIN_PORT }}/v3/"
     OS_IDENTITY_API_VERSION: "3"
-    OS_PROJECT_DOMAIN: "Default"
-    OS_USER_DOMAIN: "Default"
+    OS_PROJECT_NAME: "admin"
+    OS_PROJECT_DOMAIN_NAME: "Default"
+    OS_USER_DOMAIN_NAME: "Default"
+    OS_REGION_NAME: "RegionOne"
   register: os_tenant
 
-  #- name: 'Get Network facts'
-  #  delegate_to: localhost
-  #  os_networks_facts:
-  #    auth:
-  #      auth_url: ":35357/v2.0/"
-  #      username: "{{ OS_USERNAME }}"
-  #      password: "{{ OS_PASSWORD }}"
-  #      project_name: "{{ project }}"
-  #    validate_certs: false
-  #    filters:
-  #      tenant_id: "{{ os_tenant.project.id }}"
-  #
-  #- name: 'Getting the correct network details'
-  #  set_fact:
-  #    os_net: "{{ item }}"
-  #  when: '"({{ zone_name }})" in item.name'
-  #  with_list: "{{ openstack_networks }}"  
+- name: 'Get Network facts'
+  delegate_to: localhost
+
+  os_networks_facts:
+    validate_certs: false
+    filters:
+      tenant_id: "{{ os_tenant.project.id }}"
+
+- name: 'Getting the correct network details'
+  set_fact:
+    os_net: "{{ item }}"
+  when: '"({{ zone_name }})" in item.name'
+  with_list: "{{ openstack_networks }}"  
   
