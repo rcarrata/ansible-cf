@@ -13,4 +13,4 @@ code_dest_dir: "/tmp/ansible-cf"
 heat_image: "rhel-7.2"
 heat_flavor: "m1.small"
 heat_template: "template1.yml.j2"
-
+heat_tag: "osp"
