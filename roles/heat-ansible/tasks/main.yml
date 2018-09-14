@@ -44,6 +44,12 @@
     os_net: "{{ item }}"
   when: '"({{ zone_name }})" in item.name'
   with_list: "{{ openstack_networks }}"  
+
+- name: 'Create the directory for ansible-cf code'
+  file: 
+    path: "{{ code_dest_dir }}"    
+    state: directory
+    mode: 0755
  
 - name: 'Create the Heat Orchestration Template rendered'
   delegate_to: localhost
