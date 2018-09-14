@@ -46,6 +46,7 @@
   with_list: "{{ openstack_networks }}"  
 
 - name: 'Create the directory for ansible-cf code'
+  delegate_to: localhost
   file: 
     path: "{{ code_dest_dir }}"    
     state: directory
