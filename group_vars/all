@@ -7,11 +7,15 @@ KEYSTONE_ENDPOINT: "192.168.0.20"
 KEYSTONE_ADMIN_PORT: "35357"
 project: "admin"
 
+ssh_key_name: "test-key"
 
 # Heat Template Params
 code_dest_dir: "/tmp/ansible-cf"
-heat_image: "rhel-7.2"
+heat_image: "rhel7.2"
 heat_flavor: "m1.small"
 heat_template: "template1.yml.j2"
 stack_tag: "osp"
 stack_name: "test-stack"
+
+# TODO: dynamic get the network
+net_id: b1741294-d835-4b22-a3fc-d58a313d2e0c

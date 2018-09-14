@@ -6,7 +6,8 @@ resources:
   my_instance:
     type: OS::Nova::Server
     properties:
-      key_name: {{ ssh_key }}
+      key_name: {{ ssh_key_name }}
       image: {{ heat_image }}
       flavor: {{ heat_flavor }}
-
+      networks:
+        - network: {{ net_id }}
