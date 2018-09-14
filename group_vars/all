@@ -10,7 +10,7 @@ project: "admin"
 
 # Heat Template Params
 code_dest_dir: "/tmp/ansible-cf"
-heat-image: "rhel-7.2"
-heat-flavor: "m1.small"
-heat-template: "template1.yml.j2"
+heat_image: "rhel-7.2"
+heat_flavor: "m1.small"
+heat_template: "template1.yml.j2"
 
