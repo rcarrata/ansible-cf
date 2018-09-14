@@ -10,5 +10,7 @@ project: "admin"
 
 # Heat Template Params
 code_dest_dir: "/tmp/ansible-cf"
-ssh_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC+1zMChV7of8yE3huGTN1muV/PpC1EHvGUMfmJ6bEvfVClPkjug/QpKP0MDwVZsnOnWYpPPo8YdMfiHBIEeTvc6ZuWWNJpIjGyqHAh3HJ3eVL7/EmHUo+OpeCza65D/DN/dtgmDWlmEUvKlZYg+rWfaJQZi7rPb0JzxEgNX5QTNMgBuc4ZhV8+r1Bp8yvojNlL5BJ8+CCFsYPJl3Vj16c1/sKlxrUTEL87Ii6mvJqyC4uNf8qbHQIl6jIs1YYFHiNu21LIgBqU43zUWl98GG42OiMdF283HHsVWd8ZP5yxNk3GbTdG3L7wOsGkl+N3ML95uDp7GGz0oC4I3SyFBUZHuoCmz29PpQlIEHopsd4t1rE5uVGyN9P4PlG7gjqpakWb/08APd8werr0B1oWoSe6CVeJKfycPDEoWs2Wgw/qeeDbzgG7hojNKSRzIvUTrhYgl/w1uAtHtueCmXkjABZO5wdG895/8bgzYnQpST+WIo/1T/W5M/bz9XNMMcivbPoEhf3QSwXgIt2DhaUXgbqUnXxdLJxFXt/MIrWoBcW3MAR9uan3FxsR9JptpWC+JWATWxYXF0quKNLbHfBOrWhVe/Kiov3bzUssDsb4Rp5WkrKWJ2958p+7tizvHduIMgL/LrXsE5kB+fNZtYz3xw9brBoFB6vncvdeIb5ok5zScw== ansibletower@redhat.com"
-flavor: "heat
+heat-image: "rhel-7.2"
+heat-flavor: "m1.small"
+heat-template: "template1.yml.j2"
+
