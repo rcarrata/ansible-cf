@@ -48,7 +48,7 @@
 - name: 'Create the Heat Orchestration Template rendered'
   delegate_to: localhost
   template:
-  	src: "{{ heat_template }}"
+    src: "{{ heat_template }}"
     dest: "{{ code_dest_dir }}/{{ heat-template }}"
     mode: 0644
 
