@@ -49,7 +49,7 @@
   delegate_to: localhost
   template:
     src: "{{ heat_template }}"
-    dest: "{{ code_dest_dir }}/{{ heat-template }}"
+    dest: "{{ code_dest_dir }}/{{ heat_template }}"
     mode: 0644
 
 - name: 'Create Stack' 
@@ -64,8 +64,8 @@
     OS_USER_DOMAIN_NAME: "Default"
     OS_REGION_NAME: "RegionOne"
   os_stack: 
-    name: "{{ stack_name }}"
+	name: "{{ stack_name }}"
     tag: "{{ stack_tag }}"
-    state: present
-    template: "{{ code_dest_dir }}/{{ heat_template }}"
+	state: present
+	template: "{{ code_dest_dir }}/{{ heat_template }}"
   register: stack_create
