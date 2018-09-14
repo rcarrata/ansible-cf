@@ -10,7 +10,7 @@
     validate_certs: false
   environment:
     OS_USERNAME: "admin"
-    OS_PASSWORD: "r3dh4t1!"
+    OS_PASSWORD: "{{ OSP_PASS }}"
     OS_AUTH_URL: "http://{{ KEYSTONE_ENDPOINT }}:{{ KEYSTONE_ADMIN_PORT }}/v3/"
     OS_IDENTITY_API_VERSION: "3"
     OS_PROJECT_NAME: "admin"
@@ -26,24 +26,15 @@
 - name: 'Get Network facts'
   delegate_to: localhost
   environment:
-<<<<<<< HEAD
     OS_USERNAME: "{{ ADMIN_USER }}"
     OS_PASSWORD: "{{ OSP_PASS }}"
-=======
-    OS_USERNAME: "admin"
-    OS_PASSWORD: "r3dh4t1!"
->>>>>>> ec45334c47e98fbd691475df58af44f479ad6042
     OS_AUTH_URL: "http://{{ KEYSTONE_ENDPOINT }}:{{ KEYSTONE_ADMIN_PORT }}/v3/"
     OS_IDENTITY_API_VERSION: "3"
     OS_PROJECT_NAME: "admin"
     OS_PROJECT_DOMAIN_NAME: "Default"
     OS_USER_DOMAIN_NAME: "Default"
     OS_REGION_NAME: "RegionOne"
-<<<<<<< HEAD
-  os_networks_facts:
-=======
   os_networks_facts:  
->>>>>>> ec45334c47e98fbd691475df58af44f479ad6042
     validate_certs: false
     filters:
       tenant_id: "{{ os_tenant.project.id }}"
