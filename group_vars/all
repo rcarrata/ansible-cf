@@ -19,5 +19,5 @@ stack_name: "test-stack"
 vm_name: instance1
 
 # TODO: dynamic get the network
-net_id: d67f4443-7c0b-4ec2-b215-5d1034687aea
+net_id: ea3e0dae-85a0-4ab9-94f5-7d05fbfdb0d0
 net_name: private
