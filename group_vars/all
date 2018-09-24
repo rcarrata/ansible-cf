@@ -21,3 +21,4 @@ vm_name: instance1
 # TODO: dynamic get the network
 net_id: ea3e0dae-85a0-4ab9-94f5-7d05fbfdb0d0
 net_name: private
+fip_pool: public
