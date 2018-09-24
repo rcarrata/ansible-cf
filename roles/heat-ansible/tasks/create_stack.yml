@@ -47,3 +47,32 @@
 - name: 'Debug'
   debug: 
     msg: "{{ server_list }}"
+
+- name: '[HEAT-ANSIBLE] Check VMs'
+  os_server_facts: "{{ item }}"
+  with_items: "{{ server_list }}"  
+
+- name: '[HEAT-ANSIBLE] Debug'
+  debug:
+    msg: "{{ openstack_servers }}"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
