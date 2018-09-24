@@ -1,0 +1,22 @@
+heat_template_version: 2015-04-30
+
+resources:
+  floating_ip:
+    type: OS::Nova::FloatingIP
+    properties:
+      pool: {{ fip_pool }}
+
+  {{ vm_name }}:
+    type: OS::Nova::Server
+    properties:
+      key_name: {{ ssh_key_name }}
+      flavor: {{ heat_flavor }}
+      image: {{ heat_image }}
+      networks:
+        - network: {{ net_id }}
+
+  association:
+    type: OS::Nova::FloatingIPAssociation
+    properties:
+      floating_ip: { get_resource: floating_ip }
+      server_id: { get_resource: {{ vm_name }} }

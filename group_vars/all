@@ -16,6 +16,7 @@ heat_flavor: "m1.small"
 heat_template: "template1.yml.j2"
 stack_tag: "osp"
 stack_name: "test-stack"
+vm_name: instance1
 
 # TODO: dynamic get the network
 net_id: d67f4443-7c0b-4ec2-b215-5d1034687aea
