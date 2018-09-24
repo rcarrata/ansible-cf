@@ -30,3 +30,11 @@
     state: present
     template: "{{ code_dest_dir }}/{{ heat_template }}"
   register: stack_create
+
+- name: '[HEAT-ANSIBLE] Get VM info about heat-stack'
+  shell: "heat resource-list test-stack | grep Server | awk '{ print $4 }'"
+  register: server_list
+
+- name: 'Debug'
+  debug: 
+    msg: "{{ server_list }}"
