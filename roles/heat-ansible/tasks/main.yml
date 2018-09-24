@@ -1,7 +1,7 @@
 ---
 # tasks file for heat-ansible
 
-- name: 'Get Tenant facts'
+- name: '[HEAT-ANSIBLE] Get tenant for heat-deployment'
   delegate_to: localhost
   os_project:
     name: "{{ project }}"
@@ -19,11 +19,11 @@
     OS_REGION_NAME: "RegionOne"
   register: os_tenant
 
-- name: 'Debug'
-  debug: 
-    msg: "{{ os_tenant }}"
+  #- name: 'Debug'
+  #  debug: 
+  #    msg: "{{ os_tenant }}"
 
-- name: 'Get Network facts'
+- name: '[HEAT-ANSIBLE] Get Network facts'
   delegate_to: localhost
   environment:
     OS_USERNAME: "{{ ADMIN_USER }}"
@@ -38,14 +38,18 @@
     validate_certs: false
     filters:
       tenant_id: "{{ os_tenant.project.id }}"
-  
-- name: 'Getting the correct network details'
+ 
+- name: 'Debug'
+  debug:
+    msg: "{{ openstack_networks }}"
+
+- name: '[HEAT-ANSIBLE] Getting the correct network details'
   set_fact:
     os_net: "{{ item }}"
-  when: '"({{ zone_name }})" in item.name'
+  when: '"({{ net_name }})" in item.name'
   with_list: "{{ openstack_networks }}"  
 
-- name: 'Adding the ssh_key pair'
+- name: '[HEAT-ANSIBLE] Adding the ssh_key pair'
   delegate_to: localhost
   environment:
     OS_USERNAME: "{{ ADMIN_USER }}"
@@ -62,21 +66,21 @@
     state: present
     wait: yes 
 
-- name: 'Create the directory for ansible-cf code'
+- name: '[HEAT-ANSIBLE] Create the directory for ansible-cf code'
   delegate_to: localhost
   file: 
     path: "{{ code_dest_dir }}"    
     state: directory
     mode: 0755
  
-- name: 'Create the Heat Orchestration Template rendered'
+- name: '[HEAT-ANSIBLE] Create the Heat Orchestration Template rendered'
   delegate_to: localhost
   template:
     src: "{{ heat_template }}"
     dest: "{{ code_dest_dir }}/{{ heat_template }}"
     mode: 0644
 
-- name: 'Create Stack' 
+- name: '[HEAT-ANSIBLE] Create Stack' 
   delegate_to: localhost
   environment:
     OS_USERNAME: "{{ ADMIN_USER }}"

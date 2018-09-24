@@ -18,4 +18,5 @@ stack_tag: "osp"
 stack_name: "test-stack"
 
 # TODO: dynamic get the network
-net_id: b1741294-d835-4b22-a3fc-d58a313d2e0c
+net_id: d67f4443-7c0b-4ec2-b215-5d1034687aea
+net_name: private
