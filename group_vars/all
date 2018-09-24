@@ -13,7 +13,7 @@ ssh_key_name: "test-key"
 code_dest_dir: "/tmp/ansible-cf"
 heat_image: "rhel7.2"
 heat_flavor: "m1.small"
-heat_template: "template1.yml.j2"
+heat_template: "template2.yml.j2"
 stack_tag: "osp"
 stack_name: "test-stack"
 vm_name: instance1
