@@ -62,7 +62,8 @@
     OS_PROJECT_DOMAIN_NAME: "Default"
     OS_USER_DOMAIN_NAME: "Default"
     OS_REGION_NAME: "RegionOne"
-  os_server_facts: "{{ item }}"
+  os_server_facts: 
+    server: "{{ item }}"
   with_items: "{{ server_list.stdout }}"  
 
 - name: '[HEAT-ANSIBLE] Debug'
