@@ -6,3 +6,12 @@
     - "vault/vault.yml"
   roles:
     - { role: heat-ansible }
+      
+- name: '[HEAT-ANSIBLE] '
+  hosts: inv
+  remote_user: cloud-user
+  vars_files: 
+    - "vault/vault.yml"
+  tasks:
+    - include: roles/heat-ansible/tasks/config_stack.yml
+
