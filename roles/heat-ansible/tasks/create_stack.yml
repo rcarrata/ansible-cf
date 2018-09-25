@@ -68,6 +68,9 @@
 
 - name: '[HEAT-ANSIBLE] Debug'
   debug:
-    msg: "{{ openstack_servers }}"
+    msg: "{{ openstack_servers.public_v4 }}"
 
-
+- add_host:
+    groups: inv
+    hostname: "{{ openstack_servers.public_v4 }}"
+ 
