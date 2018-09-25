@@ -48,9 +48,12 @@
   debug: 
     msg: "{{ server_list }}"
 
+- name: set ansible_python_interpreter
+  set_fact: ansible_python_interpreter="/root/shade/bin/python"
+
 - name: '[HEAT-ANSIBLE] Check VMs'
   os_server_facts: "{{ item }}"
-  with_items: "{{ server_list }}"  
+  with_items: "{{ server_list.stdout }}"  
 
 - name: '[HEAT-ANSIBLE] Debug'
   debug:
