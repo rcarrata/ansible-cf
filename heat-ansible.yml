@@ -9,6 +9,7 @@
       
 - name: '[HEAT-ANSIBLE] '
   hosts: inv
+  delegate_to: localhost
   remote_user: cloud-user
   vars_files: 
     - "vault/vault.yml"
