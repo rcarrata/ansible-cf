@@ -19,5 +19,5 @@
 
 - name: "[VM_TEST] Echo Some Stuff"
   delegate_to: localhost
-  shell: "/usr/bin/echo 'This is the VM for the Status Page'"
+  shell: "echo $(hostname -i)"
   register: result
