@@ -4,7 +4,6 @@
 # This connection will be origined by the Ansible Tower to the FIP assigned
 # for the VM
 - name: "[VM_TEST] Wait to the instance to get the ssh service up"
-  delegate_to: localhost
   wait_for:
     host: "{{ inventory_hostname }}"
     port: 22

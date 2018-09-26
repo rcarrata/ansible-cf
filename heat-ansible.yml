@@ -17,7 +17,7 @@
   roles:
     - { role: heat-ansible }
       
-- name: '[HEAT-ANSIBLE] '
+- name: '[HEAT-ANSIBLE][CONFIG-VM] Configure VM created before'
   hosts: inv
   remote_user: cloud-user
   vars_files: 
