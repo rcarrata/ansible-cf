@@ -1,6 +1,10 @@
 ---
 
+# The VM must to be accessible and reachable from the Ansible Tower 
+# This connection will be origined by the Ansible Tower to the FIP assigned
+# for the VM
 - name: "[VM_TEST] Wait to the instance to get the ssh service up"
+  degelate_to: localhost
   wait_for:
     host: "{{ inventory_hostname }}"
     port: 22
@@ -17,4 +21,5 @@
     dest: "/tmp/testfile.txt"
 
 - name: "[VM_TEST] Echo Some Stuff"
+  delegate_to: localhost
   shell: "echo $(hostname -i)"

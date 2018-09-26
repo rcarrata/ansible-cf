@@ -42,9 +42,11 @@
     server: "{{ item }}"
   with_items: "{{ server_list.stdout }}"  
 
-- name: '[HEAT-ANSIBLE] Debug'
+- name: '[HEAT-ANSIBLE] Give me the info about the IPs'
   debug:
     msg: "{{ openstack_servers[0].public_v4 }}"
+
+- name: 'Heat
 
 - add_host:
     groups: inv
