@@ -2,6 +2,16 @@
 - name: '[HEAT-ANSIBLE][HEAT-CREATE] Heat Creation'
   hosts: all
   remote_user: root
+  vars:
+    auth_v3:
+      OS_USERNAME: "{{ ADMIN_USER }}"
+      OS_PASSWORD: "{{ OSP_PASS }}"
+      OS_AUTH_URL: "http://{{ KEYSTONE_ENDPOINT }}:{{ KEYSTONE_ADMIN_PORT }}/v3/"
+      OS_IDENTITY_API_VERSION: "3"
+      OS_PROJECT_NAME: "admin"
+      OS_PROJECT_DOMAIN_NAME: "Default"
+      OS_USER_DOMAIN_NAME: "Default"
+      OS_REGION_NAME: "RegionOne"
   vars_files:
     - "vault/vault.yml"
   roles:
@@ -15,4 +25,12 @@
     - "vault/vault.yml"
   tasks:
     - include: roles/heat-ansible/tasks/config_stack.yml
+
+
+
+
+
+
+
+
 

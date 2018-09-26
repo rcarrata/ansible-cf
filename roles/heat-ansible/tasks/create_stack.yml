@@ -16,15 +16,7 @@
 
 - name: '[HEAT-ANSIBLE] Create Stack' 
   delegate_to: localhost
-  environment:
-    OS_USERNAME: "{{ ADMIN_USER }}"
-    OS_PASSWORD: "{{ OSP_PASS }}"
-    OS_AUTH_URL: "http://{{ KEYSTONE_ENDPOINT }}:{{ KEYSTONE_ADMIN_PORT }}/v3/"
-    OS_IDENTITY_API_VERSION: "3"
-    OS_PROJECT_NAME: "admin"
-    OS_PROJECT_DOMAIN_NAME: "Default"
-    OS_USER_DOMAIN_NAME: "Default"
-    OS_REGION_NAME: "RegionOne"
+  environment: "{{ auth_v3 }}"
   os_stack: 
     name: "{{ stack_name }}"
     state: present
@@ -32,15 +24,7 @@
   register: stack_create
 
 - name: '[HEAT-ANSIBLE] Get VM info about heat-stack'
-  environment:
-    OS_USERNAME: "{{ ADMIN_USER }}"
-    OS_PASSWORD: "{{ OSP_PASS }}"
-    OS_AUTH_URL: "http://{{ KEYSTONE_ENDPOINT }}:{{ KEYSTONE_ADMIN_PORT }}/v3/"
-    OS_IDENTITY_API_VERSION: "3"
-    OS_PROJECT_NAME: "admin"
-    OS_PROJECT_DOMAIN_NAME: "Default"
-    OS_USER_DOMAIN_NAME: "Default"
-    OS_REGION_NAME: "RegionOne"
+  environment: "{{ auth_v3 }}"
   shell: "heat resource-list {{ stack_name }} | grep Server | awk '{ print $4 }'"
   register: server_list
 
@@ -53,15 +37,7 @@
 
 - name: '[HEAT-ANSIBLE] Check VMs'
   delegate_to: localhost
-  environment:
-    OS_USERNAME: "{{ ADMIN_USER }}"
-    OS_PASSWORD: "{{ OSP_PASS }}"
-    OS_AUTH_URL: "http://{{ KEYSTONE_ENDPOINT }}:{{ KEYSTONE_ADMIN_PORT }}/v3/"
-    OS_IDENTITY_API_VERSION: "3"
-    OS_PROJECT_NAME: "admin"
-    OS_PROJECT_DOMAIN_NAME: "Default"
-    OS_USER_DOMAIN_NAME: "Default"
-    OS_REGION_NAME: "RegionOne"
+  environment: "{{ auth_v3 }}"
   os_server_facts: 
     server: "{{ item }}"
   with_items: "{{ server_list.stdout }}"  
