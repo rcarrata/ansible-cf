@@ -17,6 +17,11 @@
   roles:
     - { role: heat-ansible }
       
+# For working from Tower, an tweak must to be executed
+# https://docs.ansible.com/ansible-tower/latest/html/userguide/security.html#bubblewrap-functionality-and-variables
+# The primary file you may want to add to AWX_PROOT_SHOW_PATHS is /var/lib/awx/.ssh, if your playbooks need to use keys or settings defined there.
+# Put the path /var/lib/awx/.ssh into the PATH_TO_EXPOSE_TO_ISOLATED_JOBS and restart the tower with ansible-tower-service restart
+
 - name: '[HEAT-ANSIBLE][CONFIG-VM] Configure VM created before'
   hosts: inv
   remote_user: cloud-user
