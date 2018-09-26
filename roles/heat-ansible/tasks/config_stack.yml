@@ -19,4 +19,4 @@
     dest: "/tmp/testfile.txt"
 
 - name: "[VM_TEST] Echo Some Stuff"
-  shell: "echo $(hostname -i)"
+  shell: "/usr/bin/hostname"
