@@ -20,7 +20,6 @@
 - name: '[HEAT-ANSIBLE] '
   hosts: inv
   remote_user: cloud-user
-  gather_facts: false
   vars_files: 
     - "vault/vault.yml"
   tasks:
