@@ -3,4 +3,4 @@
   tasks:
     - debug: msg="System {{ inventory_hostname }} has ip {{ ansible_default_ipv4.address }}"
     - name: Edit motd
-      copy: content=content="This server is managed by Ansible - {{ ansible_date_time.iso8601 }} dest=/etc/motd
+      copy: content=content="This server is managed by Ansible - {{ ansible_date_time.iso8601 }}" dest=/etc/motd
