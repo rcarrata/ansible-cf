@@ -9,7 +9,7 @@ project: "admin"
 
 ssh_key_name: "test-key"
 keypair_dir: "/var/lib/awx"
-keypair_file: "{{ keypair_dir }}/id_rsa.pub"
+keypair_file: "{{ keypair_dir }}/id_rsa"
 
 # Heat Template Params
 code_dest_dir: "/tmp/ansible-cf"
