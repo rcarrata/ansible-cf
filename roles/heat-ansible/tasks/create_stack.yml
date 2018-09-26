@@ -41,7 +41,7 @@
     OS_PROJECT_DOMAIN_NAME: "Default"
     OS_USER_DOMAIN_NAME: "Default"
     OS_REGION_NAME: "RegionOne"
-  shell: "heat resource-list test-stack | grep Server | awk '{ print $4 }'"
+  shell: "heat resource-list {{ stack_name }} | grep Server | awk '{ print $4 }'"
   register: server_list
 
 - name: 'Debug'
