@@ -8,7 +8,7 @@
       OS_PASSWORD: "{{ OSP_PASS }}"
       OS_AUTH_URL: "http://{{ KEYSTONE_ENDPOINT }}:{{ KEYSTONE_ADMIN_PORT }}/v3/"
       OS_IDENTITY_API_VERSION: "3"
-      OS_PROJECT_NAME: "admin"
+      OS_PROJECT_NAME: "{{ project }}"
       OS_PROJECT_DOMAIN_NAME: "Default"
       OS_USER_DOMAIN_NAME: "Default"
       OS_REGION_NAME: "RegionOne"
