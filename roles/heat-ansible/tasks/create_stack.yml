@@ -32,8 +32,8 @@
   debug: 
     msg: "{{ server_list }}"
 
-- name: '[HEAT-ANSIBLE] set ansible_python_interpreter'
-  set_fact: ansible_python_interpreter="/root/shade/bin/python"
+#- name: '[HEAT-ANSIBLE] set ansible_python_interpreter'
+#  set_fact: ansible_python_interpreter="/root/shade/bin/python"
 
 - name: '[HEAT-ANSIBLE] Check VMs'
   delegate_to: localhost
