@@ -13,11 +13,33 @@
   connection: local
   become: false
 
-
-- name: "Create a file called '/tmp/testfile.txt' with the content 'hello world'."
+- name: "[VM_TEST] Create a file called '/tmp/testfile.txt' with the content 'hello world'."
   copy: 
     content: "hello world\n" 
     dest: "/tmp/testfile.txt"
 
 - name: "[VM_TEST] Echo Some Stuff"
   shell: "/usr/bin/hostname"
+
+- name: "[VM_TEST] Install httpd for example"
+  yum: 
+    name: "{{ item }}"
+    state: latest
+  with_items:
+   - httpd
+   - php
+   - php-mysql
+   - git
+   - libsemanage-python
+   - libselinux-python
+
+- name: "[VM_TEST] Creates the index.php file"
+  template: 
+    src: "index.php.j2"
+    dest: "/var/www/html/index.php"
+
+- name: "[VM_TEST] http service state"
+  service: 
+    name: httpd 
+    state: started 
+    enabled: yes
