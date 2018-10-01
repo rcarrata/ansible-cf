@@ -19,6 +19,7 @@ heat_template: "template2.yml.j2"
 stack_tag: "osp"
 stack_name: "test-stack"
 vm_name: instance1
+user_remote_vm: "root"
 
 # TODO: dynamic get the network
 net_id: 7ce98844-b1a3-4d96-998d-d32ac0080a4c

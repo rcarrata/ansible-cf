@@ -24,7 +24,7 @@
 
 - name: '[HEAT-ANSIBLE][CONFIG-VM] Configure VM created before'
   hosts: inv
-  remote_user: cloud-user
+  remote_user: "{{ user_remote_vm }}"
   vars_files: 
     - "vault/vault.yml"
   tasks:
