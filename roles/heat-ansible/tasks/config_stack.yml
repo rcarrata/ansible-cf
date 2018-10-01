@@ -3,15 +3,15 @@
 # The VM must to be accessible and reachable from the Ansible Tower 
 # This connection will be origined by the Ansible Tower to the FIP assigned
 # for the VM
-- name: "[VM_TEST] Wait to the instance to get the ssh service up"
-  wait_for:
-    host: "{{ inventory_hostname }}"
-    port: 22
-    search_regex: OpenSSH
-    delay: 20
-    timeout: 300
-  connection: local
-  become: false
+#- name: "[VM_TEST] Wait to the instance to get the ssh service up"
+#  wait_for:
+#    host: "{{ inventory_hostname }}"
+#    port: 22
+#    search_regex: OpenSSH
+#    delay: 20
+#    timeout: 300
+#  connection: local
+#  become: false
 
 - name: "[VM_TEST] Create a file called '/tmp/testfile.txt' with the content 'hello world'."
   copy: 

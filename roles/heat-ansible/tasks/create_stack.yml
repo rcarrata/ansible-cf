@@ -50,3 +50,16 @@
     groups: inv
     hostname: "{{ openstack_servers[0].public_v4 }}"
     #ansible_ssh_private_key_file: "{{ keypair_file }}"
+
+# The VM must to be accessible and reachable from the Ansible Tower 
+# This connection will be origined by the Ansible Tower to the FIP assigned
+# for the VM
+- name: "[VM_TEST] Wait to the instance to get the ssh service up"
+  wait_for:
+    host: "{{ openstack_servers[0].public_v4 }}"
+    port: 22
+    search_regex: OpenSSH
+    delay: 20
+    timeout: 300
+  connection: local
+  become: false
